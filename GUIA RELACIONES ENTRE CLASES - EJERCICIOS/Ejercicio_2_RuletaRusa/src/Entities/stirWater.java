@@ -1,30 +1,30 @@
 package Entities;
 
-public class revolverAgua {
+public class stirWater{  //revolver agua
   private int posActual;
   
   private int posWater;
   
-  public revolverAgua(int posActual, int posWater) {
+  public stirWater(int posActual, int posWater) {
     this.posActual = posActual;
     this.posWater = posWater;
   }
   
-  public revolverAgua() {}
+  public stirWater() {} 
   
-  public void llenarRevolver() {
+  public void fillGun() {
     this.posActual = (int)(Math.random() * 6.0D);
     this.posWater = (int)(Math.random() * 6.0D);
   }
   
-  public boolean mojar() {
+  public boolean Wet() {   //mojar
     boolean validator = false;
     if (this.posActual == this.posWater)
       validator = true; 
     return validator;
   }
   
-  public void siguienteChorro() {
+  public void nextSquirt() {
     if (this.posActual < 6) {
       this.posActual++;
     } else {

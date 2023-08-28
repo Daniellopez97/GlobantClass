@@ -2,30 +2,30 @@
 package Service;
 
 import Entities.Player;
-import Entities.revolverAgua;
+import Entities.stirWater;
 import java.util.ArrayList;
 
 public class GameService {
   private int capMax = 6;
   private ArrayList<Player> Players = new ArrayList<>();
   
-  private revolverAgua r = new revolverAgua();
+  private stirWater r = new stirWater();
   
-  public void llenarjuego() {
+  public void createGame() {
     for (int i = 1; i < capMax + 1; i++)
       Players.add( new Player(i));
     
-    r.llenarRevolver();
-    System.out.println("juego preparado, los 6 jugadores se encuentran listos");
-    System.out.println("LA POSICION DEL AGUA ASESINA ES : " + r.getPosWater());
+    r.fillGun();
+    System.out.println("Game ready, the six players are ready");
+    System.out.println("The position killer water is : " + r.getPosWater());
     System.out.println("_________________________________________");
   }
   
-  public void  ronda() {
+  public void  round() {
     for (Player Player : Players) {
       System.out.println("Posicion Actual del revolver: " + this.r.getPosActual());
       System.out.println("El " + Player.getName() + " se esta preparando para disparar....................");
-      if (Player.disparo(this.r)) {
+      if (Player.Shooting(this.r)) {
         System.out.println("EL JUEGO HA TERMINADO,  EL " + Player.getName() + " Se ha matado con agua");
         break;
       } 

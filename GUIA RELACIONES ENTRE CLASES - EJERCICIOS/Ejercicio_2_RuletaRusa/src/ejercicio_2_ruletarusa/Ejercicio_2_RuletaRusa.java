@@ -11,8 +11,9 @@ public class Ejercicio_2_RuletaRusa {
     
         GameService gs = new GameService();
         
-          gs.llenarjuego();
-          gs.ronda();
+          gs.createGame();
+          gs.round();
     }
     
 }
+

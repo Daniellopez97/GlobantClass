@@ -14,15 +14,12 @@ public class Player {
     this.mojado = false;
   }
 
-
-
-  
-  public boolean disparo(revolverAgua r) {
-    if (r.mojar()) {
+  public boolean Shooting(stirWater r) {
+    if (r.Wet()) {
       this.mojado = true;
       return true;
     } 
-    r.siguienteChorro();
+    r.nextSquirt();
     return false;
   }
   
