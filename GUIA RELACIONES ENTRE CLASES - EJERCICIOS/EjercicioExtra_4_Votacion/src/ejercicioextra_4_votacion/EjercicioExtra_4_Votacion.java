@@ -1,7 +1,7 @@
 
 package ejercicioextra_4_votacion;
 
-import Entities.Simulator;
+import Service.Simulator;
 
 
 public class EjercicioExtra_4_Votacion {

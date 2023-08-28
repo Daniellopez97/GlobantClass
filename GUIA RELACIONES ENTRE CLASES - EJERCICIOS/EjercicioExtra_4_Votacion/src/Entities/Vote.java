@@ -3,8 +3,6 @@ package Entities;
 
 import java.util.ArrayList;
 
-
-
 public class Vote {
     
    private Alumn alumn = new Alumn();
@@ -33,11 +31,6 @@ public class Vote {
     public void setAlumnvotedList(ArrayList<Alumn> alumnvotedList) {
         this.alumnvotedList = alumnvotedList;
     }
-
-    
-       
-
-    
 
     
 }

@@ -1,9 +1,6 @@
 
 package Entities;
 
-import java.util.Comparator;
-
-
 public class Alumn {
     
     private String Name;
@@ -19,9 +16,6 @@ public class Alumn {
         this.countVotes = countVotes;
     }
 
-
-    
-    
     public String getName() {
         return Name;
     }

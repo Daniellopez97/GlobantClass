@@ -1,5 +1,7 @@
-package Entities;
+package Service;
 
+import Entities.Alumn;
+import Entities.Vote;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,7 +37,6 @@ public class Simulator {
                     flag = true;
                 }
             }
-
             if (flag) {
                 DniList.add(aleDni);
             }
@@ -60,7 +61,7 @@ public class Simulator {
 
     public void printAlumns() {
         for (Alumn alumn : alumnList) {
-            System.out.println("Alumno " + alumn.getName());
+            System.out.println("Alumn " + alumn.getName());
             System.out.println("DNI : " + alumn.getDNI());
             System.out.println("_ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ ");
         }
@@ -94,16 +95,16 @@ public class Simulator {
 
     public void printVote() {
         System.out.println("_______________________________");
-        System.out.println("☻ ☻  VOTACIONES   ☻ ☻");
+        System.out.println("☻ ☻  VOTING ☻ ☻");
         System.out.println("_______________________________");
 
         for (Vote vote : alumnsVotes) {
 
-            System.out.println("Nombre: " + vote.getAlumn().getName() + "   Votos: " + vote.getAlumn().getCountVotes());
+            System.out.println("Name: " + vote.getAlumn().getName() + "   votes: " + vote.getAlumn().getCountVotes());
 
             for (int i = 0; i < 3; i++) {
 
-                System.out.println("Voto " + (i + 1) + " : " + vote.getAlumnvotedList().get(i).getName());
+                System.out.println("Vote " + (i + 1) + " : " + vote.getAlumnvotedList().get(i).getName());
 
             }
 
@@ -113,12 +114,12 @@ public class Simulator {
 
     public void countVotes() {
         System.out.println("_______________________________");
-        System.out.println("☻ ☻ CONTEO TOTAL DE VOTOS  ☻ ☻");
+        System.out.println("☻ ☻ TOTAL VOTE COUNT ☻ ☻");
         System.out.println("_______________________________");
         for (Vote vote : alumnsVotes) {
 
-            System.out.println("Nombre : " + vote.getAlumn().getName());
-            System.out.println(" Votos totales : " + vote.getAlumn().getCountVotes());
+            System.out.println("Name : " + vote.getAlumn().getName());
+            System.out.println(" Total Votes : " + vote.getAlumn().getCountVotes());
             System.out.println("_ _  _ _ _ _  _ _ _ _ _ _ _ _ _  _ _ ");
         }
 
@@ -129,13 +130,13 @@ public class Simulator {
         Comparator<Alumn> orderbyVote = (Alumn t, Alumn t1) -> t1.getCountVotes() - t.getCountVotes();
         
         Collections.sort(alumnList, orderbyVote);
-        System.out.println("•• FACILITADORES ••");
+        System.out.println("•• FACILITATORS ••");
         for (int i = 0; i < 5; i++) {
 
             System.out.println(alumnList.get(i).getName());
 
         }
-        System.out.println("•• FACILITADORES SUPLENTES ••");
+        System.out.println("•• ALTERNATE FACILITATORS ••");
         for (int i = 5; i < 10; i++) {
 
             System.out.println(alumnList.get(i).getName());
