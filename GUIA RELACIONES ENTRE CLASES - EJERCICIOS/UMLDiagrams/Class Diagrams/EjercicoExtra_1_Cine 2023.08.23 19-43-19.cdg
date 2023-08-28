@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="EjercicoExtra_1_Cine">
+  <ClassDiagramComponents>
+    <Class name="EjercicoExtra_1_Cine" package="ejercicoextra_1_cine" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cinema" package="Entities" visibility="public" xPosition="333.0" yPosition="90.0">
+      <Fields>
+        <Field name="movie" type="String" visibility="private"/>
+        <Field name="priceTicket" type="double" visibility="private"/>
+        <Field name="theater" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="movie"/>
+          <Argument type="double" name="priceTicket"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getMovie" returnType="String" visibility="public"/>
+        <Method name="setMovie" returnType="void" visibility="public">
+          <Argument type="String" name="movie"/>
+        </Method>
+        <Method name="getPriceTicket" returnType="double" visibility="public"/>
+        <Method name="setPriceTicket" returnType="void" visibility="public">
+          <Argument type="double" name="priceTicket"/>
+        </Method>
+        <Method name="getTheater" returnType="String[][]" visibility="public"/>
+        <Method name="setTheater" returnType="void" visibility="public">
+          <Argument type="String[][]" name="theater"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Movie" package="Entities" visibility="public" xPosition="885.0" yPosition="494.0">
+      <Fields>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="duration" type="int" visibility="private"/>
+        <Field name="minAge" type="int" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="title"/>
+          <Argument type="int" name="duration"/>
+          <Argument type="int" name="minAge"/>
+          <Argument type="String" name="director"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getDuration" returnType="int" visibility="public"/>
+        <Method name="setDuration" returnType="void" visibility="public">
+          <Argument type="int" name="duration"/>
+        </Method>
+        <Method name="getMinAge" returnType="int" visibility="public"/>
+        <Method name="setMinAge" returnType="void" visibility="public">
+          <Argument type="int" name="minAge"/>
+        </Method>
+        <Method name="getDirector" returnType="String" visibility="public"/>
+        <Method name="setDirector" returnType="void" visibility="public">
+          <Argument type="String" name="director"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Viewer" package="Entities" visibility="public" xPosition="434.0" yPosition="523.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="age" type="int" visibility="private"/>
+        <Field name="availableMoney" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="age"/>
+          <Argument type="double" name="availableMoney"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getAge" returnType="int" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="int" name="age"/>
+        </Method>
+        <Method name="getAvailableMoney" returnType="double" visibility="public"/>
+        <Method name="setAvailableMoney" returnType="void" visibility="public">
+          <Argument type="double" name="availableMoney"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MovieService" package="Service" visibility="public" xPosition="777.0" yPosition="90.0">
+      <Fields>
+        <Field name="read" type="Scanner" visibility="private"/>
+        <Field name="auxTheater" type="String" visibility="private"/>
+        <Field name="ListViewer" type="ArrayList&lt;Viewer&gt;" visibility="private"/>
+        <Field name="cinema" type="Cinema" visibility="package"/>
+        <Field name="movie" type="Movie" visibility="private"/>
+        <Field name="viewer" type="Viewer" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="registerMovie" returnType="void" visibility="public"/>
+        <Method name="createRandomViewer" returnType="void" visibility="public"/>
+        <Method name="fillTeather" returnType="void" visibility="public"/>
+        <Method name="simulacion" returnType="void" visibility="public"/>
+        <Method name="printCinema" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="viewer" source="Service.MovieService" target="Entities.Viewer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="movie" source="Service.MovieService" target="Entities.Movie" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cinema" source="Service.MovieService" target="Entities.Cinema" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ListViewer" source="Service.MovieService" target="Entities.Viewer" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Viewer&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ejercicio2_ruletaRusa">
+  <ClassDiagramComponents>
+    <Class name="Ejercicio2_ruletaRusa" package="ejercicio2_ruletarusa" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Player" package="Entities" visibility="public" xPosition="249.0" yPosition="193.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="mojado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="disparo" returnType="boolean" visibility="public">
+          <Argument type="revolverAgua" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="isMojado" returnType="boolean" visibility="public"/>
+        <Method name="setMojado" returnType="void" visibility="public">
+          <Argument type="boolean" name="mojado"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="revolverAgua" package="Entities" visibility="public" xPosition="974.0" yPosition="181.0">
+      <Fields>
+        <Field name="posActual" type="int" visibility="private"/>
+        <Field name="posWater" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="posActual"/>
+          <Argument type="int" name="posWater"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="llenarRevolver" returnType="void" visibility="public"/>
+        <Method name="mojar" returnType="boolean" visibility="public"/>
+        <Method name="siguienteChorro" returnType="void" visibility="public"/>
+        <Method name="setPosActual" returnType="void" visibility="public">
+          <Argument type="int" name="posActual"/>
+        </Method>
+        <Method name="setPosWater" returnType="void" visibility="public">
+          <Argument type="int" name="posWater"/>
+        </Method>
+        <Method name="getPosActual" returnType="int" visibility="public"/>
+        <Method name="getPosWater" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameService" package="Service" visibility="public" xPosition="638.0" yPosition="545.0">
+      <Fields>
+        <Field name="capMax" type="int" visibility="private"/>
+        <Field name="Players" type="ArrayList&lt;Player&gt;" visibility="private"/>
+        <Field name="r" type="revolverAgua" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="llenarJuego" returnType="void" visibility="public"/>
+        <Method name="ronda" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Player" source="Service.GameService" target="Entities.Player" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="r" source="Service.GameService" target="Entities.revolverAgua" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entities.Player" target="Entities.revolverAgua" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

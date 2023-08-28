@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="EjercicioExtra_4_Votacion">
+  <ClassDiagramComponents>
+    <Class name="EjercicioExtra_4_Votacion" package="ejercicioextra_4_votacion" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Alumn" package="Entities" visibility="public" xPosition="282.0" yPosition="498.0">
+      <Fields>
+        <Field name="Name" type="String" visibility="private"/>
+        <Field name="DNI" type="int" visibility="private"/>
+        <Field name="countVotes" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="Name"/>
+          <Argument type="int" name="DNI"/>
+          <Argument type="int" name="countVotes"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="Name"/>
+        </Method>
+        <Method name="getDNI" returnType="int" visibility="public"/>
+        <Method name="setDNI" returnType="void" visibility="public">
+          <Argument type="int" name="DNI"/>
+        </Method>
+        <Method name="getCountVotes" returnType="int" visibility="public"/>
+        <Method name="setCountVotes" returnType="void" visibility="public">
+          <Argument type="int" name="countVotes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Simulator" package="Entities" visibility="public" xPosition="541.0" yPosition="74.0">
+      <Fields>
+        <Field name="Read" type="Scanner" visibility="private"/>
+        <Field name="ranName" type="String[]" visibility="private"/>
+        <Field name="ranlastName" type="String[]" visibility="private"/>
+        <Field name="NameList" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="DniList" type="ArrayList&lt;Integer&gt;" visibility="private"/>
+        <Field name="alumnList" type="ArrayList&lt;Alumn&gt;" visibility="private"/>
+        <Field name="alumnsVotes" type="ArrayList&lt;Vote&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="randomAlumn" returnType="void" visibility="public"/>
+        <Method name="randomDni" returnType="void" visibility="public"/>
+        <Method name="createAlumn" returnType="void" visibility="public"/>
+        <Method name="printAlumns" returnType="void" visibility="public"/>
+        <Method name="voting" returnType="void" visibility="public"/>
+        <Method name="printVote" returnType="void" visibility="public"/>
+        <Method name="countVotes" returnType="void" visibility="public"/>
+        <Method name="createFacilitator" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Vote" package="Entities" visibility="public" xPosition="719.0" yPosition="510.0">
+      <Fields>
+        <Field name="alumn" type="Alumn" visibility="private"/>
+        <Field name="alumnvotedList" type="ArrayList&lt;Alumn&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Alumn" name="alumn"/>
+          <Argument type="ArrayList&lt;Alumn&gt;" name="alumnvotedList"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAlumn" returnType="Alumn" visibility="public"/>
+        <Method name="setAlumn" returnType="void" visibility="public">
+          <Argument type="Alumn" name="alumn"/>
+        </Method>
+        <Method name="getAlumnvotedList" returnType="ArrayList&lt;Alumn&gt;" visibility="public"/>
+        <Method name="setAlumnvotedList" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Alumn&gt;" name="alumnvotedList"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Entities.Vote" target="Entities.Alumn" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alumn" source="Entities.Vote" target="Entities.Alumn" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alumnsVotes" source="Entities.Simulator" target="Entities.Vote" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Vote&gt;"/>
+    <HasRelation name="alumnList" source="Entities.Simulator" target="Entities.Alumn" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Alumn&gt;"/>
+    <HasRelation name="alumnvotedList" source="Entities.Vote" target="Entities.Alumn" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Alumn&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
